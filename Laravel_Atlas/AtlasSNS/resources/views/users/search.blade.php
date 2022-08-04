@@ -14,7 +14,7 @@
 @foreach ($user as $user)
 
 <tr>
-  <img width="42" src="images/icon1.png">
+  <td><img width="32" src="{{ asset('storage/' . $user->images) }}"></td>
   <td>{{ $user->username }}</td>
 
 

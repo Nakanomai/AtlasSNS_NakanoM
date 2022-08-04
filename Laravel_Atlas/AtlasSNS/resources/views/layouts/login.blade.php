@@ -40,12 +40,12 @@
                   <label for="ac-1"></label>
                    <ul class="acbox-under">
                     <li><a href="/top">ホーム</a></li>
-                    <li><a href="/profile">プロフィール</a></li>
+                    <li><a href="/profile">プロフィール編集</a></li>
                     <li><a href="/logout">ログアウト</a></li>
                    </ul>
                   </div>
                  　　<div>
-                　　  <img width="32" src="images/icon1.png">
+                　　  <img width="32" src="{{ asset('storage/' . $user->images) }}">
                 　　 </div>
                 </div>
 

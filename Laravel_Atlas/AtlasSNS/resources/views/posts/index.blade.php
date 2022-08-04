@@ -6,7 +6,8 @@
 
 {!! Form::open(['url' => 'post/create']) !!}
 <div class="form-group">
-  <img width="42" src="images/icon1.png">
+  <?php $user = Auth::user(); ?>
+  <img width="42" src="{{ asset('storage/' . $user->images) }}">
         {!! Form::input('text', 'newPost', null, ['required', 'class' => 'form-control', 'placeholder' => '投稿内容を入力してください。']) !!}
     </div>
     <button type="submit" class="c_btn btn-success pull-right"><img width="50" src="images/post.png"></button>

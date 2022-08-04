@@ -47,15 +47,10 @@ class PostsController extends Controller
 
        return redirect('top');
    }
-
-   //フォローしているユーザーのみの情報を取得
-   public function show(){
-　 // フォローしているユーザーのidを取得
-  　　 $following_id = Auth::user()->follows()->pluck(' ① ');
-
-　 // フォローしているユーザーのidを元に投稿内容を取得
-　　　 $posts = Post::with('user')->whereIn(' ② ', $following_id)->get();
-
-　　  return view('yyyy', compact(‘posts’));
-　　}
+   public function show()
+   {
+     // Postモデル経由でpostsテーブルのレコードを取得
+     $posts = Post::get();
+     return view('followList.blade', compact('posts'));
+   }
 }

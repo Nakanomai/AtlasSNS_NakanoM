@@ -1,31 +1,39 @@
 @extends('layouts.login')
-
 @section('content')
-<div class="card w-50 mx-auto m-5">
-       <div class="card-body">
-           <div class="pt-2">
-               <p class="h3 border-bottom border-secondary pb-3">プロフィール編集</p>
-           </div>
-           {!! Form::open(['route' => ['profile_edit'], 'method' => 'PUT']) !!}
-           {!! Form::hidden('id',$user->id) !!}
-           <div class="m-3">
-               <div class="form-group pt-1">
-                   {{Form::label('name','ユーザー名')}}
-                   {{Form::text('name', $user->name, ['class' => 'form-control', 'id' =>'name'])}}
-                   <span class="text-danger">{{$errors->first('name')}}</span>
-               </div>
-               <div class="form-group pt-2">
-                   {{Form::label('email','メールアドレス')}}
-                   {{Form::email('email', $user->email, ['class' => 'form-control', 'id' =>'email'])}}
-                   <span class="text-danger">{{$errors->first('email')}}</span>
-               </div>
-               <div class="form-group pull-right">
-                   {{Form::submit(' 更新する ', ['class'=>'btn btn-success rounded-pill'])}}
-               </div>
-           </div>
-           {!! Form::close() !!}
-       </div>
-   </div>
+@foreach ($errors->all() as $error)
+  <li>{{$error}}</li>
+@endforeach
+<form class="" action="{{url('/profile')}}" method="POST" enctype="multipart/form-data">
+  <div class="form-group">
+  <?php $user = Auth::user(); ?>
+    <label class="form-group mb-3">
+      user name
+      <input type="text" value="{{ $user->username }}" class="input" name="name">
+    </label><br>
+    <label class="form-group mb-3">
+      mail adress
+      <input type="text" value="{{ $user->mail }}" class="input" name="mail">
+    </label><br>
+    <label class="form-group mb-3">
+      password
+      <input type="password" class="input" name="password">
+    </label><br>
+    <label class="form-group mb-3">
+      password comfirm
+      <input type="password" value="" class="input" name="password">
+      <span class="text-danger">{{$errors->first('password_confirmation')}}</span>
+    </label><br>
+    <label class="form-group mb-3">
+      bio
+      <textarea name="bio" rows="2"></textarea>
+    </label><br>
+    <label class="form-group mb-3">
+      icon image
+      <input type="file" name="images" class="custom-file-input" id="fileImage">
+    </label>
+  </div>
+  <button type="submit" class="btn btn-primary profileupdate">更新</button>
+  {{csrf_field()}}
 
-
+</form>
 @endsection

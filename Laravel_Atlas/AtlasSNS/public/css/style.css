@@ -3,12 +3,14 @@ html{
 }
 body{
 }
+
 /* header */
 header{
     align-items: center;
     width: 100%;
     background:#186AC9;
 }
+
 #menu{
   display: block;
   flex: 0 0 80%;
@@ -153,8 +155,8 @@ header{
 }
 
 .btn,
-.btn p,
-a{
+.btn p
+{
   color: #fff;
   background-color: #186AC9;
 }

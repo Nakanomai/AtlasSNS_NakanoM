@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\Http\Requests\RegisterFormRequest;
 
 class UsersController extends Controller
 {
@@ -43,6 +45,30 @@ class UsersController extends Controller
       }
     }
 
-    //
+    //プロフィール編集機能
 
+    public function profileUpdate(RegisterFormRequest $request){ //Request→RegisterFormRequest
+      $user = Auth::user();
+      $user->username = $request->name;
+      $user->mail = $request->mail;
+      $user->password = $request->password;
+      $user->password = bcrypt($request->password);
+      $user->bio = $request->bio;
+      if(!empty($user->images)){
+      // name属性が'images'のinputタグをファイル形式に、画像をpublicに保存
+      $images = $request->file('images')->store('public');
+      // 上記処理にて保存した画像に名前を付け、userテーブルのthumbnailカラムに、格納
+      $user->images = basename($images);
+      $user->save();
+    }
+      $user->save();
+      return redirect('top');
+    }
+
+    //相手のプロフィール
+    public function othersprofile(user $user,$id){
+      $images = \DB::table('users')
+      ->where('id',$id)
+      ->get();
+    }
 }
