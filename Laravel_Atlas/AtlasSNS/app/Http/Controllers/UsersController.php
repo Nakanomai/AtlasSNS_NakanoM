@@ -13,8 +13,9 @@ class UsersController extends Controller
     public function profile(){
         return view('users.profile');
     }
+
     public function search(Request $request){
-      $user = \DB::table('users')->get();
+      $user = \DB::table('users')->get(); // usersの全てのデータを取得(Model通さずに)
       $username = $request->username;
       if (!empty($username)) {
         $user = User::where('username','like',"%$username%")->get();// code...

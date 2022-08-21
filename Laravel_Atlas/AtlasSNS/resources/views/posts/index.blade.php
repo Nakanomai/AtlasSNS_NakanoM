@@ -15,7 +15,8 @@
 
 @foreach ($list as $list)
 <tr>
-  <td>{{ $list->user_id }}</td>
+  <td><img width="32" src="{{ asset('storage/' . $list->user->images) }}" ></td>
+  <td>{{ $list->user->username }}</td>
   <td>{{ $list->post }}</td>
   <td>{{ $list->created_at }}</td>
   <td><button type="button" class="btn btn-primary js-modal-open" post="{{ $list->post }}" list_id="{{ $list->id }}">

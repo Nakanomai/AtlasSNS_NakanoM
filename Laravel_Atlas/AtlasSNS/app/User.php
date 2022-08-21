@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
+
 
 class User extends Authenticatable
 {
@@ -15,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'mail', 'password','icon_image',
+        'username', 'user_id', 'mail', 'password','icon_image',
     ];
 
     /**
@@ -26,6 +28,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /*投稿のユーザーを取得*/
+    public function posts()
+    {
+      return $this->hasMany('App\Post');
+    }
 
     /*フォローされているユーザーを取得*/
    public function followers()

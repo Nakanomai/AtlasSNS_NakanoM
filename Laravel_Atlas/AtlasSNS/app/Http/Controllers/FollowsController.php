@@ -11,19 +11,27 @@ class FollowsController extends Controller
 {
     //
     public function followList(Post $post, Follow $follow, user $user){
-      $user = auth()->user();
+      $user = auth()->user(); //現在認証しているユーザーを取得
+      $list = Follow::with('user')->get();
       $follow_ids = $follow->followingIds($user->id);
       $following_ids = $follow_ids->pluck('followed_id')->toArray();
       $timelines = $post->getTimelines($user->id, $following_ids);
-    return view('follows.followList',['timelines' => $timelines]);
+    return view('follows.followList',[
+      'list' => $list,
+      'timelines' => $timelines
+    ]);
     }
 
     public function followerList(Post $post, Follow $follow, user $user){
       $user = auth()->user();
+      $list = Follow::with('user')->get();
       $follow_ids = $follow->followedIds($user->id);
       $followed_ids = $follow_ids->pluck('following_id')->toArray();
       $timelines = $post->getTimelines($user->id, $followed_ids);
-        return view('follows.followerList',['timelines' => $timelines]);
+        return view('follows.followerList',[
+          'list' => $list,
+          'timelines' => $timelines
+        ]);
     }
 
     //フォローする
@@ -45,10 +53,5 @@ class FollowsController extends Controller
             $follow->delete();
             return false;
         }
-    }
-    //ログインユーザー以外のユーザーを抜き出す
-    public function user() {
-        $users = User::where("id" , "!=" , Auth::user()->id)->paginate(10);
-        return view('search.blade', compact('user'));
     }
 }
