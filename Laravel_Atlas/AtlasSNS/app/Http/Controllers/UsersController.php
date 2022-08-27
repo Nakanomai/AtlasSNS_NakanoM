@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\Post;
 use App\Http\Requests\RegisterFormRequest;
 
 class UsersController extends Controller
@@ -68,8 +69,21 @@ class UsersController extends Controller
 
     //相手のプロフィール
     public function othersprofile(user $user,$id){
+
       $images = \DB::table('users')
       ->where('id',$id)
       ->get();
+
+      $list = \DB::table('posts')
+      ->join('users','posts.user_id','=','user_id')
+      ->where('user_id', $id)
+      ->orderBy('posts.created_at','desc') //並び替え
+      ->select('posts.*','posts.user_id','users.username','users.images')
+      ->get();
+
+      return view('users.othersprofile',[
+        'images'=>$images,
+        'list'=>$list
+      ]);
     }
 }
