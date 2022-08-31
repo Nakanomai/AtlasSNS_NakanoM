@@ -4,7 +4,6 @@
 
 
 <p>Follow List</p>
-<p>
 @foreach ($list as $list)
 <span>
   <a href="users/{{$list->id}}/profile">
@@ -12,11 +11,19 @@
   </a>
 </span>
 @endforeach
-</p>
+
 
 @foreach ($timelines as $timelines)
+@if($timelines->user_id)
+<tr>
+  <td>
+    <a href="users/{{$timelines->user->id}}/profile">
+      <img width="32" src="{{ asset('storage/' . $timelines->user->images) }}">
+    </a>
+  </td>
+</tr>
+
 <table>
-  @if($timelines->user_id)
 <tr>
   <td>
     <a href="users/{{$timelines->user->id}}/profile">

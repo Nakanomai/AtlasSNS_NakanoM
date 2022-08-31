@@ -1,6 +1,7 @@
 @extends('layouts.login')
 @section('content')
 
+<p></p>
 @foreach ($images as $images)
 @if ($images->id)
 <figure>
