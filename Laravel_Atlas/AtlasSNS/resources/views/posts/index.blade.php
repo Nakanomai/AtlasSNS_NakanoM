@@ -10,7 +10,7 @@
   <img width="42" src="{{ asset('storage/' . $user->images) }}">
         {!! Form::input('text', 'newPost', null, ['required', 'class' => 'form-control', 'placeholder' => '投稿内容を入力してください。']) !!}
     </div>
-    <button type="submit" class="c_btn btn-success pull-right"><img width="50" src="images/post.png"></button>
+    <button type="submit" class="submit_btn"><img width="70" src="images/post.png"></button>
 {!! Form::close() !!}
 
 @foreach ($list as $list)
