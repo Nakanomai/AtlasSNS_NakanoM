@@ -4,14 +4,15 @@
 
 
 <p>Follower List</p>
-
+@foreach ($list as list)
 <tr>
   <td>
-    <a href="users/{{$timelines->user->id}}/profile">
-      <img width="32" src="{{ asset('storage/' . $timelines->user->images) }}">
+    <a href="users/{{$list->user->id}}/profile">
+      <img width="32" src="{{ asset('storage/' . $list->user->images) }}">
     </a>
   </td>
 </tr>
+@endforeach
 
 @foreach ($timelines as $timelines)
 <table>
