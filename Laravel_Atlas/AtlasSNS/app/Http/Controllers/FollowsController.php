@@ -12,10 +12,10 @@ class FollowsController extends Controller
     //
     public function followList(Post $post, Follow $follow, user $user){
       $user = auth()->user(); //現在認証しているユーザーを取得
-      $list = User::get();  //  where('id','$id') - > get () ?
       $follow_ids = $follow->followingIds($user->id);
       $following_ids = $follow_ids->pluck('followed_id')->toArray();
       $timelines = $post->getTimelines($user->id, $following_ids);
+      // $list = User::where('id',)->get();  //  where('id','$id') - > get () ?
     return view('follows.followList',[
       'list' => $list,
       'timelines' => $timelines
@@ -28,7 +28,7 @@ class FollowsController extends Controller
       //ユーザーがフォローされているユーザーを取得
       $followed_ids = $follow_ids->pluck('following_id')->toArray();
       $timelines = $post->getTimelines($user->id, $followed_ids);
-      $list = $this->followers()->whereIn('following_id', $user->id,)->pluck('following_id')->toArray();
+      $list = User::whereIn('id', [$follow_ids])->get();
         return view('follows.followerList',[
           'list' => $list,
           'timelines' => $timelines
