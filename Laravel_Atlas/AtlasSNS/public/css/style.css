@@ -11,6 +11,10 @@ header{
     background:#186AC9;
 }
 
+a, tr, td, img{
+  text-decoration:none;
+}
+
 #menu{
   display: block;
   flex: 0 0 80%;
@@ -85,6 +89,7 @@ header{
   font-size: 16px; /* ラベルの文字サイズ */
   font-weight: bold;
   text-align: center;
+  text-decoration:none;
   position: relative;
   display: block;
   padding:8px;
@@ -168,6 +173,11 @@ header{
   text-decoration: none;
 }
 
+.btn,
+.btn-primary{
+  margin: 0 0 0 auto;
+}
+
 .submit_btn{
   border: 0px;
   background: left top no-repeat;
@@ -194,6 +204,8 @@ header{
 	position: fixed;
 	top: 0;
 	width: 100%;
+  text-decoration:none;
+
 }
 .modal__bg{
 	background: rgba(0,0,0,0.8);

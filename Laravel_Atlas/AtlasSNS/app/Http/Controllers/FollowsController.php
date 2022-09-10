@@ -11,11 +11,14 @@ class FollowsController extends Controller
 {
     //
     public function followList(Post $post, Follow $follow, user $user){
-      $user = auth()->user(); //現在認証しているユーザーを取得
-      $follow_ids = $follow->followingIds($user->id);
-      $following_ids = $follow_ids->pluck('followed_id')->toArray();
-      $timelines = $post->getTimelines($user->id, $following_ids);
-      // $list = User::where('id',)->get();  //  where('id','$id') - > get () ?
+      //現在認証しているユーザーを取得
+      $user = auth()->user();
+      //ログインユーザーのリレーション先のqueryを取得
+      $following_ids = $user->follows()->pluck('followed_id');
+      //フォローのアイコン一覧を取得
+      $list = User::whereIn('id',$following_ids)->get();
+      //フォローの投稿一覧を取得
+      $timelines = Post::whereIn('user_id', $following_ids)->get();
     return view('follows.followList',[
       'list' => $list,
       'timelines' => $timelines
@@ -23,12 +26,14 @@ class FollowsController extends Controller
     }
 
     public function followerList(Post $post, Follow $follow, user $user){
+      //ログインユーザーのidを取得
       $user = auth()->user();
-      $follow_ids = $follow->followedIds($user->id);
-      //ユーザーがフォローされているユーザーを取得
-      $followed_ids = $follow_ids->pluck('following_id')->toArray();
-      $timelines = $post->getTimelines($user->id, $followed_ids);
-      $list = User::whereIn('id', [$follow_ids])->get();
+      //ログインユーザーのリレーション先のqueryを取得
+      $followed_ids = $user->followers()->pluck('following_id');
+      //フォロワーのアイコン一覧を取得
+      $list = User::whereIn('id',$followed_ids)->get();
+      //フォロワーの投稿一覧を取得
+      $timelines = Post::whereIn('user_id', $followed_ids)->get();
         return view('follows.followerList',[
           'list' => $list,
           'timelines' => $timelines

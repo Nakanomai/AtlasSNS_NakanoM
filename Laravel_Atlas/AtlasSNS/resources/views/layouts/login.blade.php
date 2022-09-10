@@ -32,7 +32,7 @@
 <body>
     <header>
         <div id="head">
-        <h1><a href="/top"><img width="72" src="images/atlas.png"></a></h1>
+        <h1><a href="/top"><img width="72" src="{{ asset ( 'images/atlas.png' ) }} "></a></h1>
             <div class="menu">
                 <div id="user_menu">
                   <p><?php $user = Auth::user(); ?>{{ $user->username }}さん</p>

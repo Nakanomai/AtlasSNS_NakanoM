@@ -3,29 +3,41 @@
 @section('content')
 
 <p></p>
-@foreach ($images as $images)
-@if ($images->id)
+@foreach ($users as $user)
 <figure>
   <tr>
     <td>
-      <img width="35" src="{{ asset('storage/' . $images->images) }}" >
+      <img width="35" src="{{ asset('storage/' . $user->images) }}" >
     </td>
     <th>name</th>
-    <td>{{ $images->username }}</td>
+    <td>{{ $user->username }}</td>
     <th>bio</th>
-    <td>{{ $images->bio }}</td>
+    <td>{{ $user->bio }}</td>
   </tr>
 </figure>
+
+@if (auth()->user()->isFollowing($user->id))
+<form action="{{ route('unfollow', ['id' => $user->id]) }}" method="POST">
+                                      {{ csrf_field() }}
+                                      {{ method_field('DELETE') }}
+  <td><button type="submit" class="btn btn-primary js-modal-open">フォロー解除</button></td>
+</form>
+@else
+  <form action="{{ route('follow', ['id' => $user->id]) }}" method="POST">
+                                       {{ csrf_field() }}
+  <td><button type="submit" class="btn btn-primary js-modal-open">フォロー</button></td>
+  </form>
 @endif
+
 @endforeach
 
-@foreach ($list as $list)
+@foreach ($user as $user)
 <table>
-  @if ($list->user_id)
+  @if ($user->user_id)
   <tr>
-    <td><img width="32" src="{{ asset('storage/' . $list->images) }}" ></td>
-    <td>{{ $list->username }}</td>
-    <td>{{ $list->post }}</td>
+    <td><img width="32" src="{{ asset('storage/' . $user->images) }}" ></td>
+    <td>{{ $user->username }}</td>
+    <td>{{ $user->post }}</td>
   </tr>
   @endif
 </table>

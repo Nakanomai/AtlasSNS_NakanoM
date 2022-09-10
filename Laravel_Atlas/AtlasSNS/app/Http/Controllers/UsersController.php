@@ -68,22 +68,24 @@ class UsersController extends Controller
     }
 
     //相手のプロフィール
-    public function othersprofile(user $user,$id){
 
-      $images = \DB::table('users')
-      ->where('id',$id)
-      ->get();
 
-      $list = \DB::table('posts')
-      ->join('users','posts.user_id','=','user_id')
-      ->where('user_id', $id)
-      ->orderBy('posts.created_at','desc') //並び替え
-      ->select('posts.*','posts.user_id','users.username','users.images')
-      ->get();
+    public function othersprofile($user_id){
+
+      $users =User::find($user_id);
+
+      //$images = \DB::table('users')->where('id',$id)->get();
+
+      //$list = \DB::table('posts')
+      //->join('users','posts.user_id','=','user_id')
+      //->where('user_id', $id)
+      //->orderBy('posts.created_at','desc') //並び替え
+      //->select('posts.*','posts.user_id','users.username','users.images')
+      //->find();
+
 
       return view('users.othersprofile',[
-        'images'=>$images,
-        'list'=>$list
+        'users'=> $users
       ]);
     }
 }
