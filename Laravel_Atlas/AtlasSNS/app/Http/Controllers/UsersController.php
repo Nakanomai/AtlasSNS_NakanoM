@@ -72,7 +72,8 @@ class UsersController extends Controller
 
     public function othersprofile($user_id){
 
-      $users =User::find($user_id);
+      $user = User::find($user_id);
+      $posts = $user->posts()->get();
 
       //$images = \DB::table('users')->where('id',$id)->get();
 
@@ -85,7 +86,8 @@ class UsersController extends Controller
 
 
       return view('users.othersprofile',[
-        'users'=> $users
+        'user'=> $user,
+        'posts'=> $posts
       ]);
     }
 }

@@ -3,7 +3,6 @@
 @section('content')
 
 <p></p>
-@foreach ($users as $user)
 <figure>
   <tr>
     <td>
@@ -29,15 +28,14 @@
   </form>
 @endif
 
-@endforeach
 
-@foreach ($user as $user)
+@foreach ($posts as $posts)
 <table>
-  @if ($user->user_id)
+  @if ($posts->user_id)
   <tr>
-    <td><img width="32" src="{{ asset('storage/' . $user->images) }}" ></td>
-    <td>{{ $user->username }}</td>
-    <td>{{ $user->post }}</td>
+    <td><img width="32" src="{{ asset('storage/' . $posts->user->images) }}" ></td>
+    <td>{{ $posts->username }}</td>
+    <td>{{ $posts->post }}</td>
   </tr>
   @endif
 </table>

@@ -9,19 +9,26 @@
 
 <h2>新規ユーザー登録</h2>
 
-{{ Form::label('ユーザー名') }}
+{{ Form::label('user name') }}
+<br>
 {{ Form::text('username',null,['class' => 'input']) }}
+<br>
 
-{{ Form::label('メールアドレス') }}
+{{ Form::label('mail address') }}
+<br>
 {{ Form::text('mail',null,['class' => 'input']) }}
+<br>
 
-{{ Form::label('パスワード') }}
+{{ Form::label('password') }}
+<br>
 {{ Form::text('password',null,['class' => 'input']) }}
+<br>
 
-{{ Form::label('パスワード確認') }}
+{{ Form::label('password comfirm') }}
+<br>
 {{ Form::text('password_confirmation',null,['class' => 'input']) }}
-
-{{ Form::submit('登録') }}
+<br>
+{{ Form::submit('登録',['class' => 'button']) }}
 
 
 <p><a href="/login">ログイン画面へ戻る</a></p>
