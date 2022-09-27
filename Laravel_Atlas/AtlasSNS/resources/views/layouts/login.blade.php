@@ -39,9 +39,9 @@
                   <div class="acbox"><input id="ac-1" type="checkbox" />
                   <label for="ac-1"></label>
                    <ul class="acbox-under">
-                    <li><a href="/top">ホーム</a></li>
-                    <li><a href="/profile">プロフィール編集</a></li>
-                    <li><a href="/logout">ログアウト</a></li>
+                    <li><a href="/top" class="acbox-under">ホーム</a></li>
+                    <li><a href="/profile" class="acbox-under">プロフィール編集</a></li>
+                    <li><a href="/logout" class="acbox-under">ログアウト</a></li>
                    </ul>
                   </div>
                  　　<div>

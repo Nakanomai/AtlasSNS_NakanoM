@@ -6,7 +6,9 @@
                     <div class="form-group">
                     <input type="text" name="username" value=""
                     placeholder="ユーザー名">
-                    <input type="submit" value="検索" >
+                    <button type="submit" class="search_btn">
+                      <img class="search_btn" width="30" src="images/search.png">
+                    </button>
                     </div>
                 </form>
 

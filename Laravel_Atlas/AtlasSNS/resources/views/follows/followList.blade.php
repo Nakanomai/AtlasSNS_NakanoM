@@ -7,7 +7,7 @@
 @foreach ($list as $list)
 <tr>
   <td>
-    <a href="users/{{$list->id}}/profile">
+    <a class="icon" href="users/{{$list->id}}/profile">
       <img width="32" src="{{ asset('storage/' . $list->images) }}">
     </a>
   </td>

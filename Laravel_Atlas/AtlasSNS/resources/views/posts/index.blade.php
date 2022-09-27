@@ -7,23 +7,35 @@
 {!! Form::open(['url' => 'post/create']) !!}
 <div class="form-group">
   <?php $user = Auth::user(); ?>
-  <img width="42" src="{{ asset('storage/' . $user->images) }}">
+  <td><img width="42" src="{{ asset('storage/' . $user->images) }}"></td>
         {!! Form::input('text', 'newPost', null, ['required', 'class' => 'form-control', 'placeholder' => '投稿内容を入力してください。']) !!}
     </div>
     <button type="submit" class="submit_btn">
       <img class="submit_btn" width="70" src="images/post.png">
     </button>
+    <hr class="border-1">
 {!! Form::close() !!}
 
 @foreach ($list as $list)
 <tr>
+  <div class="post_created_at">{{ $list->created_at }}</div>
   <td><img width="32" src="{{ asset('storage/' . $list->user->images) }}" ></td>
-  <td>{{ $list->user->username }}</td>
-  <td>{{ $list->post }}</td>
-  <td>{{ $list->created_at }}</td>
-  <td><button type="button" class="btn btn-primary js-modal-open" post="{{ $list->post }}" list_id="{{ $list->id }}">
-  更新</button></td>
-  <td><a class="btn btn-danger" href="/post/{{$list->id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">削除</a></td>
+  <a>{{ $list->user->username }}</a>
+  <br>
+  <div class="post_post">{{ $list->post }}</div>
+
+  <td>
+    <div class="btn-post">
+      <button class="post js-modal-open" post="{{ $list->post }}" list_id="{{ $list->id }}">
+        <img class="post" width="29" src="images/edit.png">
+      </button>
+    </td>
+    <td>
+      <a class="destroy" href="/post/{{$list->id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">
+        <img class="destroy" width="40" src="images/trash-h.png"></a>
+    </td>
+    </div>
+  <hr>
 </tr>
 
 

@@ -10,6 +10,7 @@
     </td>
     <th>name</th>
     <td>{{ $user->username }}</td>
+    <br>
     <th>bio</th>
     <td>{{ $user->bio }}</td>
   </tr>
@@ -28,17 +29,19 @@
   </form>
 @endif
 
+<hr>
 
 @foreach ($posts as $posts)
-<table>
+<td>
   @if ($posts->user_id)
   <tr>
     <td><img width="32" src="{{ asset('storage/' . $posts->user->images) }}" ></td>
-    <td>{{ $posts->username }}</td>
-    <td>{{ $posts->post }}</td>
+    <td>{{ $posts->user->username }}</td>
+    <br>
+    <div class="post_post">{{ $posts->post }}</div>
   </tr>
   @endif
-</table>
+</td>
 
 @endforeach
 

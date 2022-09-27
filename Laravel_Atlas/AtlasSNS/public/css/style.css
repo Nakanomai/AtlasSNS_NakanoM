@@ -8,16 +8,23 @@ body{
 header{
     align-items: center;
     width: 100%;
+    height: 100px;
     background:#186AC9;
 }
 
 a, tr, td, img{
   text-decoration:none;
+  margin: 5px;
+}
+
+a{
+  text-decoration: none;
 }
 
 #user_menu{
-  display: fixed;
-  flex: 0 0 80%;
+  display: flex;
+  justify-content: flex-end;
+
 }
 /* main content */
 #row{
@@ -30,6 +37,16 @@ a, tr, td, img{
 #side-bar{
     flex: 0 0 19%;
     border-left: 1px solid #727272;
+}
+
+.border-1{
+  border: 3px solid #727272;
+}
+
+.acbox-under{
+  text-decoration: none;
+  text-align: center; /* 中央寄せ */
+  display: block;
 }
 
 .user::before,
@@ -67,10 +84,6 @@ a, tr, td, img{
   color: #fff;
 }
 
-#user_menu{
-  display: flex;
-}
-
 
 .menu .links {
   height: 0px;
@@ -86,13 +99,13 @@ a, tr, td, img{
 
 .acbox label{
   width: auto;
-  font-size: 16px; /* ラベルの文字サイズ */
+  font-size: 15px; /* ラベルの文字サイズ */
   font-weight: bold;
   text-align: center;
   text-decoration:none;
   position: relative;
   display: block;
-  padding:8px;
+  padding:18px;
   cursor: pointer;
   color: #fff;
 }
@@ -112,6 +125,7 @@ a, tr, td, img{
 
 .acbox input:checked ~ label::after {
   content:"▲"; /* ラベルをクリックした後のアイコン */
+  display: block;
 }
 
 .acbox ul{
@@ -123,14 +137,13 @@ a, tr, td, img{
 
 .acbox input:checked ~ ul{
   height: auto;
-  padding: 18px; /* 開いた部分の枠内の余白 */
+  padding: 16px; /* 開いた部分の枠内の余白 */
   border-radius: 0px;
-  background: #F3F4F5; /* 開いた部分の背景色 */
+  background-color: #F3F4F5; /* 開いた部分の背景色 */
   opacity: 1;
 }
 
 .acbox-under{
-  font-size: 15px; /* 開いた部分の文字サイズ */
   color: #555555; /* 開いた部分の文字色 */
 }
 
@@ -176,11 +189,27 @@ a, tr, td, img{
 .btn,
 .btn-primary{
   margin: 0 0 0 auto;
+  text-align: center;
+}
+
+.btn-primary{
+  text-align: center;
+}
+
+.btn-post{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-post,
+.post, .destroy{
+  background:none;
+  border:0;
 }
 
 .submit_btn{
   padding:0;
-  margin:0;
+  margin: 0 0 0 auto;
   background:none;
   border:0;
   font-size:0;
@@ -191,11 +220,37 @@ a, tr, td, img{
   display: flex;
 }
 
-.form-group {
-  margin-bottom: 1rem;
+.search_btn{
+  background:none;
+  border:0;
+  font-size:0;
+  line-height:0;
+  overflow:visible;
+  cursor:pointer;
 }
 
+.form-group {
+  margin-bottom: 1rem;
+  border: 0px;
+}
 
+.form-group input{
+}
+
+.form-control input{
+  border:none;
+}
+
+.post_created_at{
+  text-align: right;
+  text-decoration: none;
+  color: #212529;
+}
+
+.post_post{
+  font-size: 14px;
+  padding: 0px 16px 0px 40px;
+}
 
 *{
 	box-sizing: border-box;
@@ -204,8 +259,8 @@ a, tr, td, img{
 }
 .content{
 	margin: 0 auto;
-	padding: 40px;
 }
+
 .modal{
 	display: none;
 	height: 100vh;
