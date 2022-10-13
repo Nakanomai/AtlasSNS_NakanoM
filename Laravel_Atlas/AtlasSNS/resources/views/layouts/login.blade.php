@@ -31,11 +31,10 @@
 
 <body>
     <header>
-        <div id="head">
         <h1><a href="/top"><img width="72" src="{{ asset ( 'images/atlas.png' ) }} "></a></h1>
-            <div class="menu">
+        <div class="menu">
                 <div id="user_menu">
-                  <p><?php $user = Auth::user(); ?>{{ $user->username }}さん</p>
+                  <p class="username"><?php $user = Auth::user(); ?>{{ $user->username }}さん</p>
                   <div class="acbox"><input id="ac-1" type="checkbox" />
                   <label for="ac-1"></label>
                    <ul class="acbox-under">
@@ -44,12 +43,10 @@
                     <li><a href="/logout" class="acbox-under">ログアウト</a></li>
                    </ul>
                   </div>
-                 　　<div>
-                　　  <img width="32" src="{{ asset('storage/' . $user->images) }}">
-                　　 </div>
+                  <div>
+                    <img width="32" src="{{ asset('storage/' . $user->images) }}">
+                  </div>
                 </div>
-
-            </div>
         </div>
     </header>
 
@@ -64,15 +61,21 @@
                 <p>フォロー数</p>
                 <p>{{ Auth::user()->follows()->get()->count() }}人</p>
                 </div>
-                <button type="button" class="btn btn-primary"><a href="/follow-list">フォローリスト</a></button>
+                <div class="btn-list">
+                  <button type="button" class="btn btn-list btn-primary"><a href="/follow-list">フォローリスト</a></button>
+                </div>
                 <div>
                 <p>フォロワー数</p>
                 <p>{{ Auth::user()->followers()->get()->count() }}人</p>
                 </div>
-                <button type="button" class="btn btn-primary"><a href="/follower-list">フォロワーリスト</a></button>
+                <div class="btn-list">
+                  <button type="button" class="btn btn-list btn-primary"><a href="/follower-list">フォロワーリスト</a></button>
+                </div>
             </div>
             <hr>
-            <button type="button" class="btn btn-primary"><a href="/search">ユーザー検索</a></button>
+            <div class="btn-search">
+              <button type="button" class="btn btn-search btn-primary"><a href="/search">ユーザー検索</a></button>
+            </div>
         </div>
     </div>
     <footer>

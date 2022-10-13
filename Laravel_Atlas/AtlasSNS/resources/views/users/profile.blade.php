@@ -4,35 +4,38 @@
   <li>{{$error}}</li>
 @endforeach
 <form class="" action="{{url('/profile')}}" method="POST" enctype="multipart/form-data">
-  <div class="form-group">
+  <div class="form-update">
   <?php $user = Auth::user(); ?>
+  <td><img width="32" src="{{ asset('storage/' . $user->images ) }}"></td>
     <label class="form-group mb-3">
       user name
       <input type="text" value="{{ $user->username }}" class="input" name="name">
     </label><br>
     <label class="form-group mb-3">
-      mail adress
+      　　 　mail adress
       <input type="text" value="{{ $user->mail }}" class="input" name="mail">
     </label><br>
     <label class="form-group mb-3">
-      password
+      　　 password
       <input type="password" class="input" name="password">
     </label><br>
     <label class="form-group mb-3">
-      password comfirm
+      　　　　　 　password comfirm
       <input type="password" value="" class="input" name="password">
       <span class="text-danger">{{$errors->first('password_confirmation')}}</span>
     </label><br>
     <label class="form-group mb-3">
-      bio
+    bio
       <textarea name="bio" rows="2"></textarea>
     </label><br>
     <label class="form-group mb-3">
-      icon image
+      　　　　　　　　　　　　icon image
       <input type="file" name="images" class="custom-file-input" id="fileImage">
     </label>
   </div>
-  <button type="submit" class="btn btn-primary profileupdate">更新</button>
+  <div class="btn-profileupdate">
+    <button type="submit" class="btn btn-primary btn-profileupdate">更新</button>
+  </div>
   {{csrf_field()}}
 
 </form>

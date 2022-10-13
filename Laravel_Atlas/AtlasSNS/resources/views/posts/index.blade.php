@@ -8,7 +8,7 @@
 <div class="form-group">
   <?php $user = Auth::user(); ?>
   <td><img width="42" src="{{ asset('storage/' . $user->images) }}"></td>
-        {!! Form::input('text', 'newPost', null, ['required', 'class' => 'form-control', 'placeholder' => '投稿内容を入力してください。']) !!}
+        {!! Form::input('text', 'newPost', null, ['required', 'class' => 'form-post', 'placeholder' => '投稿内容を入力してください。']) !!}
     </div>
     <button type="submit" class="submit_btn">
       <img class="submit_btn" width="70" src="images/post.png">
@@ -18,10 +18,11 @@
 
 @foreach ($list as $list)
 <tr>
-  <div class="post_created_at">{{ $list->created_at }}</div>
   <td><img width="32" src="{{ asset('storage/' . $list->user->images) }}" ></td>
-  <a>{{ $list->user->username }}</a>
-  <br>
+  <ul class="post_created_at_username">
+    <li>{{ $list->user->username }}</li>
+    <li>{{ $list->created_at }}</li>
+  </ul>
   <div class="post_post">{{ $list->post }}</div>
 
   <td>

@@ -6,25 +6,25 @@ body{
 
 /* header */
 header{
-    align-items: center;
     width: 100%;
-    height: 100px;
+    height: 60px;
     background:#186AC9;
+    display: flex;
+    justify-content: space-between;
 }
 
-a, tr, td, img{
+a, tr, td, img, form{
   text-decoration:none;
   margin: 5px;
 }
 
-a{
-  text-decoration: none;
+a img {
+border: none;
+text-decoration: none;
 }
 
 #user_menu{
   display: flex;
-  justify-content: flex-end;
-
 }
 /* main content */
 #row{
@@ -64,6 +64,11 @@ a{
   display: none; /*はじめは非表示*/
   margin: 0;
   padding: 0;
+}
+
+.username{
+  z-index: 999;
+  transform: translate(135px);
 }
 
 /*dropdown-menu*/
@@ -179,6 +184,19 @@ a{
   letter-spacing: 0.1em;
   border-radius: 0.5rem;
 }
+.btn-list{
+  text-align: right;
+  margin: 0 auto; /* 中央寄せ */
+}
+.btn-search{
+  text-align: center; /* 中央寄せ */
+  margin: 0 auto; /* 中央寄せ */
+}
+
+.btn-profileupdate{
+  text-align: center; /* 中央寄せ */
+  margin: 0 auto; /* 中央寄せ */
+}
 
 .btn,
 .btn p,
@@ -248,18 +266,23 @@ a{
 
 .form-control{
   border:none;
+  border-radius: 0;
   outline:none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
-.post_created_at{
-  text-align: right;
-  text-decoration: none;
-  color: #212529;
+ul.post_created_at_username{
+  display: flex;
+  justify-content: space-between;
+  list-style-type:none;
+  padding-right: 20px;
 }
 
 .post_post{
   font-size: 14px;
-  padding: 0px 16px 0px 40px;
+  padding: 0px 15px 0px 30px;
 }
 
 *{
@@ -294,4 +317,36 @@ a{
 	top: 50%;
 	transform: translate(-50%,-50%);
 	width: 60%;
+}
+.form-post {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.form-inline{
+  padding-top: 30px;　/* 余白上だけ指定 */
+  padding-left: 10px;
+}
+
+
+.form-update{
+  text-align: center; /* 中央寄せ */
+  margin: 0 auto; /* 中央寄せ */
+}
+
+.icon{
+  text-decoration: none;
 }

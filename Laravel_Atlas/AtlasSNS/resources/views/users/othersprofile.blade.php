@@ -5,14 +5,11 @@
 <p></p>
 <figure>
   <tr>
-    <td>
-      <img width="35" src="{{ asset('storage/' . $user->images) }}" >
-    </td>
+    <td><img width="35" src="{{ asset('storage/' . $user->images) }}" ></td>
     <th>name</th>
     <td>{{ $user->username }}</td>
     <br>
-    <th>bio</th>
-    <td>{{ $user->bio }}</td>
+    <div>　　　<th>bio</th> {{ $user->bio }}</div>
   </tr>
 </figure>
 
@@ -20,7 +17,9 @@
 <form action="{{ route('unfollow', ['id' => $user->id]) }}" method="POST">
                                       {{ csrf_field() }}
                                       {{ method_field('DELETE') }}
+<div class="submit_btn">
   <td><button type="submit" class="btn btn-primary js-modal-open">フォロー解除</button></td>
+</div>
 </form>
 @else
   <form action="{{ route('follow', ['id' => $user->id]) }}" method="POST">

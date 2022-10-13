@@ -12,6 +12,8 @@
                     </div>
                 </form>
 
+<hr class="border-1">
+
 
 @foreach ($user as $user)
 
