@@ -20,14 +20,15 @@
 <table>
   @if($timelines->user_id)
 <div class="post_post">
-  <div class="post_created_at">{{ $list->created_at }}</div>
   <td>
     <a href="users/{{$timelines->user->id}}/profile">
       <img width="32" src="{{ asset('storage/' . $timelines->user->images) }}">
     </a>
   </td>
-  <td>{{ $timelines->user->username }}</td>
-  <br>
+  <ul class="post_created_at_username">
+    <li>{{ $timelines->user->username }}</li>
+    <li>{{ $list->created_at }}</li>
+  </ul>
   <td class="post_post">{{ $timelines->post }}</td>
 </div>
 @endif

@@ -57,14 +57,15 @@
         <div id="side-bar">
             <div id="confirm">
                 <p><?php $user = Auth::user(); ?>{{ $user->username }}さんの</p>
-                <div>
+                <div class="count">
                 <p>フォロー数</p>
                 <p>{{ Auth::user()->follows()->get()->count() }}人</p>
                 </div>
                 <div class="btn-list">
                   <button type="button" class="btn btn-list btn-primary"><a href="/follow-list">フォローリスト</a></button>
                 </div>
-                <div>
+                <br>
+                <div class="count">
                 <p>フォロワー数</p>
                 <p>{{ Auth::user()->followers()->get()->count() }}人</p>
                 </div>

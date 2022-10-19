@@ -24,6 +24,7 @@ text-decoration: none;
 }
 
 #user_menu{
+  padding-top: 10px;
   display: flex;
 }
 /* main content */
@@ -35,7 +36,7 @@ text-decoration: none;
     flex: 0 0 80%;
 }
 #side-bar{
-    flex: 0 0 19%;
+    flex: 0 0 20%;
     border-left: 1px solid #727272;
 }
 
@@ -66,10 +67,10 @@ text-decoration: none;
   padding: 0;
 }
 
-.username{
-  z-index: 999;
-  transform: translate(135px);
-}
+/* .username{ */
+  /* z-index: 999; */
+  /* transform: translate(135px); */
+/* } */
 
 /*dropdown-menu*/
 .menu input {
@@ -143,13 +144,13 @@ text-decoration: none;
   overflow: hidden;
   opacity: 0;
   transition: 0.15s; /* 開閉スピードの設定 */
+  /* background-color: #00297e; /* 開いた部分の背景色 */ */
   z-index: 10;
 }
 
 .acbox input:checked ~ ul{
   height: auto;
   padding: 16px; /* 開いた部分の枠内の余白 */
-  border-radius: 0px;
   background-color: #F3F4F5; /* 開いた部分の背景色 */
   opacity: 1;
   z-index: 10;
@@ -259,9 +260,16 @@ text-decoration: none;
 .form-group {
   margin-bottom: 1rem;
   border: 0;
+  text-align: left;
+}
+.form-group, .input{
+  display: grid;
 }
 
-.form-group input{
+input.input, textarea{
+  text-align: left;
+  background-color: #e5e5e5;
+  border: 1px solid #7a7a7a;
 }
 
 .form-control{
@@ -343,10 +351,15 @@ ul.post_created_at_username{
 
 
 .form-update{
-  text-align: center; /* 中央寄せ */
   margin: 0 auto; /* 中央寄せ */
+  display: table;
 }
 
 .icon{
   text-decoration: none;
+}
+
+.count{
+  display: flex;
+  justify-content: space-around;
 }

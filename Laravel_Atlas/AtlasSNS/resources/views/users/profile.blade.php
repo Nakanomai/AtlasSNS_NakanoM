@@ -12,24 +12,24 @@
       <input type="text" value="{{ $user->username }}" class="input" name="name">
     </label><br>
     <label class="form-group mb-3">
-      　　 　mail adress
+      mail adress
       <input type="text" value="{{ $user->mail }}" class="input" name="mail">
     </label><br>
     <label class="form-group mb-3">
-      　　 password
+      password
       <input type="password" class="input" name="password">
     </label><br>
     <label class="form-group mb-3">
-      　　　　　 　password comfirm
+      password comfirm
       <input type="password" value="" class="input" name="password">
       <span class="text-danger">{{$errors->first('password_confirmation')}}</span>
     </label><br>
     <label class="form-group mb-3">
-    bio
+      bio
       <textarea name="bio" rows="2"></textarea>
     </label><br>
     <label class="form-group mb-3">
-      　　　　　　　　　　　　icon image
+      icon image
       <input type="file" name="images" class="custom-file-input" id="fileImage">
     </label>
   </div>

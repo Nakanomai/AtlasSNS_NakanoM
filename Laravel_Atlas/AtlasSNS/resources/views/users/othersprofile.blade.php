@@ -35,8 +35,10 @@
   @if ($posts->user_id)
   <tr>
     <td><img width="32" src="{{ asset('storage/' . $posts->user->images) }}" ></td>
-    <td>{{ $posts->user->username }}</td>
-    <br>
+    <ul class="post_created_at_username">
+      <li>{{ $posts->user->username }}</li>
+      <li>{{ $posts->created_at }}</li>
+    </ul>
     <div class="post_post">{{ $posts->post }}</div>
   </tr>
   @endif
