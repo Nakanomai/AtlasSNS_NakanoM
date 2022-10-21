@@ -4,39 +4,41 @@
   <li>{{$error}}</li>
 @endforeach
 <form class="" action="{{url('/profile')}}" method="POST" enctype="multipart/form-data">
-  <div class="form-update">
   <?php $user = Auth::user(); ?>
-  <td><img width="32" src="{{ asset('storage/' . $user->images ) }}"></td>
-    <label class="form-group mb-3">
-      user name
-      <input type="text" value="{{ $user->username }}" class="input" name="name">
-    </label><br>
-    <label class="form-group mb-3">
-      mail adress
-      <input type="text" value="{{ $user->mail }}" class="input" name="mail">
-    </label><br>
-    <label class="form-group mb-3">
-      password
-      <input type="password" class="input" name="password">
-    </label><br>
-    <label class="form-group mb-3">
-      password comfirm
-      <input type="password" value="" class="input" name="password">
+  <div class="profile-container">
+    <figure><img width="32" src="{{ asset('storage/' . $user->images ) }}"></figure>
+    <div class="form-update">
+      <div class="profile-wrapper">
+        user name
+        <input type="text" value="{{ $user->username }}" class="input" name="name">
+      </div>
+      <div class="profile-wrapper">
+        mail adress
+        <input type="text" value="{{ $user->mail }}" class="input" name="mail">
+      </div>
+      <div class="profile-wrapper">
+        password
+        <input type="password" class="input" name="password">
+      </div>
+      <div class="profile-wrapper">
+        password comfirm
+        <input type="password" value="" class="input" name="password">
+      </div>
       <span class="text-danger">{{$errors->first('password_confirmation')}}</span>
-    </label><br>
-    <label class="form-group mb-3">
-      bio
-      <textarea name="bio" rows="2"></textarea>
-    </label><br>
-    <label class="form-group mb-3">
-      icon image
-      <input type="file" name="images" class="custom-file-input" id="fileImage">
-    </label>
+      <div class="profile-wrapper">
+        bio
+        <textarea name="bio" rows="2"></textarea>
+      </div>
+      <div class="profile-wrapper">
+        icon image
+        <input type="file" name="images" class="custom-file-input" id="fileImage">
+      </div>
+    </div>
+    <div class="btn-profileupdate">
+      <button type="submit" class="btn btn-primary btn-profileupdate">更新</button>
+    </div>
+    {{csrf_field()}}
   </div>
-  <div class="btn-profileupdate">
-    <button type="submit" class="btn btn-primary btn-profileupdate">更新</button>
-  </div>
-  {{csrf_field()}}
 
 </form>
 @endsection

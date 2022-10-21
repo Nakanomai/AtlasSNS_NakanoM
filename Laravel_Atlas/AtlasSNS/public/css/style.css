@@ -257,13 +257,20 @@ text-decoration: none;
   cursor:pointer;
 }
 
-.form-group {
-  margin-bottom: 1rem;
+.profile-wrapper{
+  margin-bottom: 1.5rem;
   border: 0;
   text-align: left;
 }
-.form-group, .input{
-  display: grid;
+
+.profile-wrapper{
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-update{
+  margin: auto;
+  display: table;
 }
 
 input.input, textarea{
@@ -349,11 +356,6 @@ ul.post_created_at_username{
   padding-left: 10px;
 }
 
-
-.form-update{
-  margin: 0 auto; /* 中央寄せ */
-  display: table;
-}
 
 .icon{
   text-decoration: none;
