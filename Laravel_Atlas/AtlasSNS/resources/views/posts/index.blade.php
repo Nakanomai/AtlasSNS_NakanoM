@@ -17,7 +17,7 @@
 {!! Form::close() !!}
 
 @foreach ($list as $list)
-<tr>
+<!-- <tr>
   <td><img width="32" src="{{ asset('storage/' . $list->user->images) }}" ></td>
   <ul class="post_created_at_username">
     <li>{{ $list->user->username }}</li>
@@ -37,7 +37,35 @@
     </td>
     </div>
   <hr>
-</tr>
+</tr> -->
+
+<div class="post_content"><!-- 全体で囲む -->
+  <figure><img width="32" src="{{ asset('storage/' . $list->user->images) }}"></figure>
+  <div class="post-container">
+  <div class="post_created_at_username">
+    <p class="post_created_at_username">{{ $list->user->username }}</p>
+    <p class="post_created_at_username">{{ $list->created_at }}</p><!-- 右端 -->
+  </div>
+
+  <div class="post_post">{{ $list->post }}</div><!-- 投稿内容 -->
+
+  <div class="btn-post"> <!-- 全体　ボタン -->
+    <div class="btn-post"><!-- 編集 -->
+      <button class="post js-modal-open" post="{{ $list->post }}" list_id="{{ $list->id }}">
+        <img class="post" width="29" src="images/edit.png">
+      </button>
+      <div class="btn-post"><!-- 削除 -->
+        <a class="destroy" href="/post/{{$list->id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">
+          <img class="destroy" width="40" src="images/trash-h.png">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  </div>
+</div>
+  <hr><!-- 線-->
+
 
 
 

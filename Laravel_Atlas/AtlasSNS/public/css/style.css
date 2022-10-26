@@ -156,6 +156,11 @@ text-decoration: none;
   z-index: 10;
 }
 
+.acbox:hover{
+  background-color: #00297e;
+  z-index: 110;
+}
+
 .acbox-under{
   color: #555555; /* 開いた部分の文字色 */
   z-index: 10;
@@ -269,8 +274,13 @@ text-decoration: none;
 }
 
 .form-update{
-  margin: auto;
   display: table;
+}
+
+.profile-container{
+  margin-top: 2rem;
+  margin-left: 15rem;
+  display: flex;
 }
 
 input.input, textarea{
@@ -288,7 +298,13 @@ input.input, textarea{
   -moz-appearance: none;
 }
 
-ul.post_created_at_username{
+
+
+.post_content{
+  display: flex;
+}
+
+.post_created_at_username{
   display: flex;
   justify-content: space-between;
   list-style-type:none;

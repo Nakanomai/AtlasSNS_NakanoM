@@ -33,11 +33,12 @@
         icon image
         <input type="file" name="images" class="custom-file-input" id="fileImage">
       </div>
-    </div>
-    <div class="btn-profileupdate">
-      <button type="submit" class="btn btn-primary btn-profileupdate">更新</button>
+
     </div>
     {{csrf_field()}}
+  </div>
+  <div class="btn-profileupdate">
+    <button type="submit" class="btn btn-primary btn-profileupdate">更新</button>
   </div>
 
 </form>
