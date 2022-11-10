@@ -7,9 +7,9 @@
 {!! Form::open(['url' => 'post/create']) !!}
 <div class="form-group">
   <?php $user = Auth::user(); ?>
-  <td><img width="42" src="{{ asset('storage/' . $user->images) }}"></td>
+  <img width="42" src="{{ asset('storage/' . $user->images) }}">
         {!! Form::input('text', 'newPost', null, ['required', 'class' => 'form-post', 'placeholder' => '投稿内容を入力してください。']) !!}
-    </div>
+</div>
     <button type="submit" class="submit_btn">
       <img class="submit_btn" width="70" src="images/post.png">
     </button>
@@ -17,56 +17,57 @@
 {!! Form::close() !!}
 
 @foreach ($list as $list)
-<!-- <tr>
-  <td><img width="32" src="{{ asset('storage/' . $list->user->images) }}" ></td>
-  <ul class="post_created_at_username">
-    <li>{{ $list->user->username }}</li>
-    <li>{{ $list->created_at }}</li>
-  </ul>
-  <div class="post_post">{{ $list->post }}</div>
 
-  <td>
-    <div class="btn-post">
-      <button class="post js-modal-open" post="{{ $list->post }}" list_id="{{ $list->id }}">
-        <img class="post" width="29" src="images/edit.png">
-      </button>
-    </td>
-    <td>
-      <a class="destroy" href="/post/{{$list->id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">
-        <img class="destroy" width="40" src="images/trash-h.png"></a>
-    </td>
-    </div>
-  <hr>
-</tr> -->
+ <div class="post_content">
+   <div>
+     <td><img width="32" src="{{ asset('storage/' . $list->user->images) }}" ></td>
+     <ul class="post_created_at_username">
+       <li>{{ $list->user->username }}</li>
+       <li>{{ $list->created_at }}</li>
+     </ul>
+   </div>
+    <div class="post_post">{{ $list->post }}</div>
 
-<div class="post_content"><!-- 全体で囲む -->
-  <figure><img width="32" src="{{ asset('storage/' . $list->user->images) }}"></figure>
-  <div class="post-container">
-  <div class="post_created_at_username">
-    <p class="post_created_at_username">{{ $list->user->username }}</p>
-    <p class="post_created_at_username">{{ $list->created_at }}</p><!-- 右端 -->
-  </div>
-
-  <div class="post_post">{{ $list->post }}</div><!-- 投稿内容 -->
-
-  <div class="btn-post"> <!-- 全体　ボタン -->
-    <div class="btn-post"><!-- 編集 -->
-      <button class="post js-modal-open" post="{{ $list->post }}" list_id="{{ $list->id }}">
-        <img class="post" width="29" src="images/edit.png">
-      </button>
-      <div class="btn-post"><!-- 削除 -->
+      <div class="btn-post">
+        <td>
+        <button class="post js-modal-open" post="{{ $list->post }}" list_id="{{ $list->id }}">
+          <img class="post" width="29" src="images/edit.png">
+        </button>
+        </td>
+        <td>
         <a class="destroy" href="/post/{{$list->id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">
-          <img class="destroy" width="40" src="images/trash-h.png">
-        </a>
+          <img class="destroy" width="40" src="images/trash-h.png"></a>
+        </td>
       </div>
-    </div>
-  </div>
+</div>
+  <hr>
 
+
+
+
+<!-- <div class="post_content"> アイコン・名前・時間で囲む
+  <figure><img width="32" src="{{ asset('storage/' . $list->user->images) }}"></figure>
+    <div class="post_created_at_username">
+      <p class="post_created_at_username">{{ $list->user->username }}</p> 名前
+      <p class="post_created_at_username">{{ $list->created_at }}</p> 時間　右端に置く
+    </div>
+</div>
+<div class="post_btn_post"> 投稿内容とボタン
+  <div class="post_post">{{ $list->post }}</div> 投稿内容
+  <div class="btn_post">  ボタン
+    <div class="btn_post">  編集
+      <button class="post js-modal-open" post="{{ $list->post }}" list_id="{{ $list->id }}">
+        <img class="post" width="29" src="images/edit.png">
+      </button>
+    </div>
+    <div class="btn_post"> 削除
+      <a class="destroy" href="/post/{{$list->id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">
+        <img class="destroy" width="40" src="images/trash-h.png">
+      </a>
+    </div>
   </div>
 </div>
-  <hr><!-- 線-->
-
-
+  <hr> 線 -->
 
 
 <!-- Modal -->

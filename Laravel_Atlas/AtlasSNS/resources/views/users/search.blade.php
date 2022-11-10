@@ -17,8 +17,9 @@
 
 @foreach ($user as $user)
 
-<tr>
+<div class="search-container">
   <td><img width="32" src="{{ asset('storage/' . $user->images) }}"></td>
+  <div class="search-wrapper">
   <td>{{ $user->username }}</td>
 
 
@@ -27,16 +28,17 @@
 <form action="{{ route('unfollow', ['id' => $user->id]) }}" method="POST">
                                       {{ csrf_field() }}
                                       {{ method_field('DELETE') }}
-  <td><button type="submit" class="btn btn-primary js-modal-open">フォロー解除</button></td>
+  <td><button type="submit" class="follow_btn btn btn-primary js-modal-open btn-unfollow">フォロー解除</button></td>
 </form>
 @else
-  <form action="{{ route('follow', ['id' => $user->id]) }}" method="POST">
+<form action="{{ route('follow', ['id' => $user->id]) }}" method="POST">
                                        {{ csrf_field() }}
-  <td><button type="submit" class="btn btn-primary js-modal-open">フォロー</button></td>
-  </form>
+  <td><button type="submit" class="follow_btn btn btn-primary js-modal-open">フォロー</button></td>
+</form>
 @endif
+</div>
 <!-- /*変更* -->
-</tr>
+</div>
 
 @endforeach
 @endsection

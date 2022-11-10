@@ -15,7 +15,11 @@ header{
 
 a, tr, td, img, form{
   text-decoration:none;
-  margin: 5px;
+  /* margin: 5px; */
+}
+
+li{
+  list-style-type: none;
 }
 
 a img {
@@ -85,6 +89,7 @@ text-decoration: none;
   text-decoration: none;
   line-height: 1;
   position: relative;
+  left: 140px;
   padding: 10px;
   cursor :pointer;
   color: #fff;
@@ -139,31 +144,51 @@ text-decoration: none;
   display: block;
 }
 
-.acbox ul{
+.acbox div{
   height: 0px;
   overflow: hidden;
   opacity: 0;
   transition: 0.15s; /* 開閉スピードの設定 */
-  /* background-color: #00297e; /* 開いた部分の背景色 */ */
   z-index: 10;
+  border-color: #00297e;
 }
 
-.acbox input:checked ~ ul{
+.acbox input:checked ~ div{
+  display: block;
   height: auto;
-  padding: 16px; /* 開いた部分の枠内の余白 */
   background-color: #F3F4F5; /* 開いた部分の背景色 */
   opacity: 1;
   z-index: 10;
 }
 
-.acbox:hover{
+div.acbox-under li a{
+  display: block;
+}
+
+li :hover{
   background-color: #00297e;
+  color: #efefef;
   z-index: 110;
+}
+
+li a.acbox-under{
+  padding-top: 11px;
+  padding-bottom: 11px;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+a.acbox-under:hover {
+  color: #ffffff;
 }
 
 .acbox-under{
   color: #555555; /* 開いた部分の文字色 */
   z-index: 10;
+}
+
+li::marker{
+  list-style-type: none;
 }
 
 /* ボタン */
@@ -229,17 +254,6 @@ text-decoration: none;
   text-align: center;
 }
 
-.btn-post{
-  display: flex;
-  justify-content: flex-end;
-}
-
-.btn-post,
-.post, .destroy{
-  background:none;
-  border:0;
-}
-
 .submit_btn{
   padding:0;
   margin: 0 0 0 auto;
@@ -251,6 +265,13 @@ text-decoration: none;
   cursor:pointer;
   text-align: right;
   display: flex;
+  padding: 0px 10px 0px 0px;
+}
+
+.btn-unfollow{
+  color: #fff;
+  background-color: #ed3833;
+  border-color: #ed3833;
 }
 
 .search_btn{
@@ -298,22 +319,85 @@ input.input, textarea{
   -moz-appearance: none;
 }
 
-
-
-.post_content{
-  display: flex;
-}
+/* ホームの投稿内容 */
 
 .post_created_at_username{
   display: flex;
   justify-content: space-between;
   list-style-type:none;
   padding-right: 20px;
+  position: relative;
+  bottom: 27px;
+  left: 7px;
 }
 
+.post_content{
+  margin: 0px 40px 0px 50px;
+}
+
+.post_btn_post{
+  display: flex;
+}
 .post_post{
   font-size: 14px;
   padding: 0px 15px 0px 30px;
+  position: relative;
+  bottom: 22px;
+}
+
+.btn-post{
+  display: flex;
+  justify-content: flex-end;
+  padding: 0px 8px 0px 0px;
+}
+
+.btn-post,
+.post, .destroy{
+  background:none;
+  border:0;
+}
+
+/* フォローとフォロワーの共有部分 */
+div.icon-group{
+  margin: 10px 0px 30px 20px;
+}
+
+/* フォローの投稿一覧 */
+.follow_content{
+  margin: 0px 40px 0px 50px;
+}
+
+.follow_post{
+  font-size: 14px;
+  padding: 0px 15px 0px 30px;
+  position: relative;
+  bottom: 22px;
+}
+
+/* フォロワーの投稿一覧 */
+.follower_content{
+  margin: 0px 40px 0px 50px;
+}
+
+.follower_post{
+  font-size: 14px;
+  padding: 0px 15px 0px 30px;
+  position: relative;
+  bottom: 22px;
+}
+
+
+/* search */
+.search-container{
+  display: flex;
+  align-items: center;
+  padding: 5px 10px 0px 0px;
+}
+
+.search-wrapper{
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
 }
 
 *{
@@ -348,6 +432,11 @@ input.input, textarea{
 	top: 50%;
 	transform: translate(-50%,-50%);
 	width: 60%;
+}
+
+.form-group{
+  display: flex;
+  margin: 20px 0px -7px 20px;
 }
 .form-post {
     display: block;

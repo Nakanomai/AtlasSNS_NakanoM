@@ -18,14 +18,16 @@
                                       {{ csrf_field() }}
                                       {{ method_field('DELETE') }}
 <div class="submit_btn">
-  <td><button type="submit" class="btn btn-primary js-modal-open">フォロー解除</button></td>
+  <td><button type="submit" class="btn btn-primary js-modal-open btn-unfollow">フォロー解除</button></td>
 </div>
 </form>
 @else
-  <form action="{{ route('follow', ['id' => $user->id]) }}" method="POST">
+<form action="{{ route('follow', ['id' => $user->id]) }}" method="POST">
                                        {{ csrf_field() }}
+<div class="submit_btn">
   <td><button type="submit" class="btn btn-primary js-modal-open">フォロー</button></td>
-  </form>
+</div>
+</form>
 @endif
 
 <hr>

@@ -37,14 +37,14 @@
                   <p class="username"><?php $user = Auth::user(); ?>{{ $user->username }}さん</p>
                   <div class="acbox"><input id="ac-1" type="checkbox" />
                   <label for="ac-1"></label>
-                   <ul class="acbox-under">
+                   <div class="acbox-under">
                     <li><a href="/top" class="acbox-under">ホーム</a></li>
                     <li><a href="/profile" class="acbox-under">プロフィール編集</a></li>
                     <li><a href="/logout" class="acbox-under">ログアウト</a></li>
-                   </ul>
+                  </div>
                   </div>
                   <div>
-                    <img width="32" src="{{ asset('storage/' . $user->images) }}">
+                    <img width="30" src="{{ asset('storage/' . $user->images) }}">
                   </div>
                 </div>
         </div>
