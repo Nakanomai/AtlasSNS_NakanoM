@@ -18,7 +18,8 @@
                                       {{ csrf_field() }}
                                       {{ method_field('DELETE') }}
 <div class="submit_btn">
-  <td><button type="submit" class="btn btn-primary js-modal-open btn-unfollow">フォロー解除</button></td>
+  <td><button type="submit" class="btn btn-primary js-modal-open btn-unfollow"
+    style="background-color: red; border-color: #ed3833;">フォロー解除</button></td>
 </div>
 </form>
 @else

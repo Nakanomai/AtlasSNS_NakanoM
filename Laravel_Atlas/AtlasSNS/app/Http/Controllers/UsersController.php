@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Post;
+use App\Follow;
 use App\Http\Requests\RegisterFormRequest;
 
 class UsersController extends Controller

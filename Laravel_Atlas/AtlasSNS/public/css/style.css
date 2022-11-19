@@ -48,6 +48,7 @@ text-decoration: none;
   border: 3px solid #727272;
 }
 
+
 .acbox-under{
   text-decoration: none;
   text-align: center; /* 中央寄せ */
@@ -89,7 +90,7 @@ text-decoration: none;
   text-decoration: none;
   line-height: 1;
   position: relative;
-  left: 140px;
+  left: 250px;
   padding: 10px;
   cursor :pointer;
   color: #fff;
@@ -107,6 +108,12 @@ text-decoration: none;
   background:#000a9e;
 }
 
+div.test{
+  position: relative;
+  left: 300px;
+  top: 3px;
+}
+
 .acbox{
   z-index: 10;
 }
@@ -119,7 +126,7 @@ text-decoration: none;
   text-decoration:none;
   position: relative;
   display: block;
-  padding:18px;
+  padding:14px;
   cursor: pointer;
   color: #fff;
   z-index: 10;
@@ -133,10 +140,9 @@ text-decoration: none;
 .acbox label:after{
   color: #fff;
   content:"▼"; /* ラベルのアイコン */
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  margin-top: -14px;
+  position: relative;
+  bottom: 8px;
+  left: 65px;
 }
 
 .acbox input:checked ~ label::after {
@@ -172,10 +178,10 @@ li :hover{
 }
 
 li a.acbox-under{
-  padding-top: 11px;
+  padding-top: 44px;
   padding-bottom: 11px;
-  padding-right: 30px;
-  padding-left: 30px;
+  padding-right: 88px;
+  padding-left: 88px;
 }
 
 a.acbox-under:hover {

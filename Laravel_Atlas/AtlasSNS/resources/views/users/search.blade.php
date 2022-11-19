@@ -28,7 +28,7 @@
 <form action="{{ route('unfollow', ['id' => $user->id]) }}" method="POST">
                                       {{ csrf_field() }}
                                       {{ method_field('DELETE') }}
-  <td><button type="submit" class="follow_btn btn btn-primary js-modal-open btn-unfollow">フォロー解除</button></td>
+  <td><button type="submit" class="follow_btn btn btn-primary js-modal-open btn-unfollow" style="background-color: red; border-color: #ed3833;">フォロー解除</button></td>
 </form>
 @else
 <form action="{{ route('follow', ['id' => $user->id]) }}" method="POST">

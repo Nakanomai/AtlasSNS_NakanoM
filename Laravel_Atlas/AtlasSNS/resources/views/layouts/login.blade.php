@@ -34,7 +34,11 @@
         <h1><a href="/top"><img width="72" src="{{ asset ( 'images/atlas.png' ) }} "></a></h1>
         <div class="menu">
                 <div id="user_menu">
-                  <p class="username"><?php $user = Auth::user(); ?>{{ $user->username }}さん</p>
+                  <p class="username"><?php $user = Auth::user(); ?>{{ $user->username }}さん
+                    <div class="test">
+                      <img width="30" src="{{ asset('storage/' . $user->images) }}">
+                    </div>
+                  </p>
                   <div class="acbox"><input id="ac-1" type="checkbox" />
                   <label for="ac-1"></label>
                    <div class="acbox-under">
@@ -42,9 +46,6 @@
                     <li><a href="/profile" class="acbox-under">プロフィール編集</a></li>
                     <li><a href="/logout" class="acbox-under">ログアウト</a></li>
                   </div>
-                  </div>
-                  <div>
-                    <img width="30" src="{{ asset('storage/' . $user->images) }}">
                   </div>
                 </div>
         </div>

@@ -21,12 +21,12 @@
 
 {{ Form::label('password') }}
 <br>
-{{ Form::text('password',null,['class' => 'input']) }}
+{{ Form::password('password',null,['class' => 'input']) }}
 <br>
 
 {{ Form::label('password comfirm') }}
 <br>
-{{ Form::text('password_confirmation',null,['class' => 'input']) }}
+{{ Form::password('password_confirmation',null,['class' => 'input']) }}
 <br>
 {{ Form::submit('登録',['class' => 'button']) }}
 

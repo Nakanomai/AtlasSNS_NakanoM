@@ -27,7 +27,7 @@
       <span class="text-danger">{{$errors->first('password_confirmation')}}</span>
       <div class="profile-wrapper">
         bio
-        <textarea name="bio" rows="2"></textarea>
+        <input type="text" value="{{ $user->bio }}" class="input" name="bio" rows="2"></input>
       </div>
       <div class="profile-wrapper">
         icon image
