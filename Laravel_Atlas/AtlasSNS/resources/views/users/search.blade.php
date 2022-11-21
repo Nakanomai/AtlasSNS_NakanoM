@@ -17,6 +17,7 @@
 
 @foreach ($user as $user)
 
+
 <div class="search-container">
   <td><img width="32" src="{{ asset('storage/' . $user->images) }}"></td>
   <div class="search-wrapper">
@@ -39,6 +40,7 @@
 </div>
 <!-- /*変更* -->
 </div>
+
 
 @endforeach
 @endsection
