@@ -16,7 +16,7 @@
 
 
 @foreach ($user as $user)
-
+@if($user_id !== $user->username)<!-- foreachでループしているユーザーのidと、ログインしているユーザーのidが一致しない -->
 
 <div class="search-container">
   <td><img width="32" src="{{ asset('storage/' . $user->images) }}"></td>
@@ -41,6 +41,6 @@
 <!-- /*変更* -->
 </div>
 
-
+@endif
 @endforeach
 @endsection
