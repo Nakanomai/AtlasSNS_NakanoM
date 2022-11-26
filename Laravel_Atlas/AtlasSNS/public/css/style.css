@@ -289,6 +289,10 @@ li::marker{
   cursor:pointer;
 }
 
+.follow_btn{
+  width: 135px;
+}
+
 .profile-wrapper{
   margin-bottom: 1.5rem;
   border: 0;
@@ -395,14 +399,17 @@ div.icon-group{
 
 /* search */
 .search-container{
-  display: flex;
+
   align-items: center;
-  padding: 5px 10px 0px 0px;
+  padding: 0px 90px 0px 100px;
 }
 
 .search-wrapper{
   display: flex;
   justify-content: space-between;
+  position: relative;
+  bottom: 28px;
+  margin-left: 36px;
   text-align: left;
 }
 

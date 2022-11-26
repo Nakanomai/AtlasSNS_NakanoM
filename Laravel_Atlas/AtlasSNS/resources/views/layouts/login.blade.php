@@ -57,7 +57,7 @@
         </div >
         <div id="side-bar">
             <div id="confirm">
-                <p><?php $user = Auth::user(); ?>{{ $user->username }}さんの</p>
+                <p><?php $user = Auth::user(); ?>{{ $user->username }}さんの</p> <!--  Auth::user()->username もできる -->
                 <div class="count">
                 <p>フォロー数</p>
                 <p>{{ Auth::user()->follows()->get()->count() }}人</p>

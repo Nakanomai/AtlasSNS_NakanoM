@@ -17,10 +17,10 @@ class UsersController extends Controller
     }
 
     public function search(Request $request){
-      $user = \DB::table('users')->get(); // usersの全てのデータを取得(Model通さずに)
+      $user = \DB::table('users')->where('id', '!=',Auth::user()->id)->get(); // usersの全てのデータを取得(Model通さずに)
       $username = $request->username;
       if (!empty($username)) {
-        $user = User::where('username','like',"%$username%")->get();// code...
+        $user = User::where('username','like',"%$username%")->where('id', '!=',Auth::user()->id)->get();// code...
         $request->session()->put('username', $username);
       }else{
         \Session::remove('username');
