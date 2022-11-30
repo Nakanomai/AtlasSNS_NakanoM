@@ -97,7 +97,7 @@
       <form class="" action="/post/update" method="post">
         <input type="text" name="upPost" value="" class="upPost" required placeholder="投稿内容を入力してください。">
         <input type="hidden" name="id" value="" class="post_id">
-        <button type="button" class="btn btn-primary">更新</button>
+        <button type="submit" class="btn btn-primary">更新</button>
         {{ csrf_field() }}
       </form>
 			<a class="js-modal-close" href="">閉じる</a>

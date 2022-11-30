@@ -2,6 +2,9 @@
 
 @section('content')
 
+<div class="search_results">
+
+</div>
 <form class="form-inline" action="{{url('/search')}}" method="GET">
                     <div class="form-group">
                     <input type="text" name="username" value=""
@@ -11,6 +14,11 @@
                     </button>
                     </div>
                 </form>
+
+
+@if(!empty($username))
+<div class="keyword">検索ワード：{{ session('username') }}</div>
+@endif
 
 <hr class="border-1">
 

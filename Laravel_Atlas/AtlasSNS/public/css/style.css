@@ -42,6 +42,7 @@ text-decoration: none;
 #side-bar{
     flex: 0 0 20%;
     border-left: 1px solid #727272;
+    height: 100vh;
 }
 
 .border-1{
@@ -411,6 +412,12 @@ div.icon-group{
   bottom: 28px;
   margin-left: 36px;
   text-align: left;
+}
+
+.keyword{
+  position: relative;
+  left: 320px;
+  bottom: 22px;
 }
 
 *{

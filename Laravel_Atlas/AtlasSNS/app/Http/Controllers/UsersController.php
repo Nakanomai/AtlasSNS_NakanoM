@@ -21,8 +21,10 @@ class UsersController extends Controller
       $username = $request->username;
       if (!empty($username)) {
         $user = User::where('username','like',"%$username%")->where('id', '!=',Auth::user()->id)->get();// code...
+        //↓セッションへデータを保存する
         $request->session()->put('username', $username);
       }else{
+        //↓削除…？
         \Session::remove('username');
       }
         return view('users.search',['username'=>$username,'user'=>$user]);
